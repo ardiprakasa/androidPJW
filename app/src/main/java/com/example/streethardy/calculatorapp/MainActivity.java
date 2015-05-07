@@ -1,5 +1,6 @@
 package com.example.streethardy.calculatorapp;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     Button btnTambah, btnKurang, btnKali, btnBagi;
     EditText editTextInput1, editTextInput2, editTextOutput;
@@ -62,8 +63,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.buttonTambah:
-                String angka1=editTextInput1
+                String angka1=editTextInput1.getText().toString();
+                String angka2=editTextInput2.getText().toString();
+
+                double hasil= Double.parseDouble(angka1)+Double.parseDouble(angka2);
+
+                editTextOutput.setText(String.valueOf(hasil));
                 break;
+
             case R.id.buttonKurang:
 
                 break;
